@@ -229,7 +229,7 @@ int Mesh::read_obj(const char * filename) {
             if (token == NULL) continue;
 
             std::string s(token);
-            if (s.substr(0,3) == "fix") {
+            if ((s.substr(0,3) == "fix") || (s.substr(0,3) == "zip")) {
                 v->string() = s;
             }
 			continue;
