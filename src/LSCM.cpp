@@ -222,10 +222,14 @@ void LSCM::project() {
 		Vertex * v = vertices[i];
 		v_uv(v) = Point2(x[i], x[i + vn]);
 	}
+
+	/*
 	for (MeshVertexIterator viter(m_mesh); !viter.end(); viter++) {
 		Vertex * v = *viter;
 		Point2 p = v_uv(v);
 		Point p3(p[0], p[1], 0);
 		v->point() = p3;
 	}
+	*/
+
 }

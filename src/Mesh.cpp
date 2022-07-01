@@ -453,6 +453,19 @@ int Mesh::write_obj(const char * output) {
 		fprintf(_os, "\n");
 	}
 
+	// print texture coordinate entries...  use this for passing the 3d coordiantes through.
+	for (std::list<Vertex*>::iterator viter = m_vertices.begin(); viter != m_vertices.end(); viter++) {
+            Vertex *v = *viter;
+
+            Point2 uv = v_uv(v);            
+            fprintf(_os, "vt");
+            for (int i = 0; i < 2; i++) {
+                    fprintf(_os, " %g", uv[i]);
+            }
+            fprintf(_os, "\n");
+    }
+
+
 	for (std::list<Face*>::iterator fiter = m_faces.begin(); fiter != m_faces.end(); fiter++) {
 		Face *f = *fiter;
 		fprintf(_os, "f");
